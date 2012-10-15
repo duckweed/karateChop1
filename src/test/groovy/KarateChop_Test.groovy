@@ -24,6 +24,11 @@ class KarateChop_Test {
     }
 
     @Test
+    void haystack_withNeedleInMiddle_returnsMinus1() {
+        checkKarateChop(-1, 3, [2, 4])
+    }
+
+    @Test
     void haystack_withoutNeedle_returnsMinus1() {
         checkKarateChop(-1, 1, [2])
     }
@@ -50,7 +55,7 @@ class KarateChop_Test {
     }
 
     @Test
-    void largish_haystack_works() {
+    void largish_haystack_withOddNUmberOfStraws_works() {
         def haystack = [1, 2, 3, 4, 5]
         checkKarateChop(-1, 0, haystack)
         checkKarateChop(0, 1, haystack)
@@ -58,6 +63,18 @@ class KarateChop_Test {
         checkKarateChop(2, 3, haystack)
         checkKarateChop(3, 4, haystack)
         checkKarateChop(4, 5, haystack)
+    }
+
+    @Test
+    void largish_haystack_withEvenNumberOfStraws_works() {
+        def haystack = [1, 2, 3, 4, 5, 6]
+        checkKarateChop(-1, 0, haystack)
+        checkKarateChop(0, 1, haystack)
+        checkKarateChop(1, 2, haystack)
+        checkKarateChop(2, 3, haystack)
+        checkKarateChop(3, 4, haystack)
+        checkKarateChop(4, 5, haystack)
+        checkKarateChop(5, 6, haystack)
     }
 
     private void checkKarateChop(int expected, int needle, ArrayList<Integer> haystack) {
