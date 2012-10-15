@@ -9,6 +9,12 @@ class Chop {
         if (haystack.isEmpty()) {
             return -1
         }
+        if (haystack[0] > needle) {
+            return -1
+        }
+        if (haystack[haystack.size()-1] < needle) {
+            return -1
+        }
         if (haystack[0] == needle) {
             return 0
         }
@@ -22,7 +28,6 @@ class Chop {
         if (haystack[middle] == needle) {
             return middle
         }
-        println "middle = $middle"
         if (notAtEitherEnd(middle, haystack)) {
             return haystack[middle]
         }
